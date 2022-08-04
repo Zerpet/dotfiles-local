@@ -1,0 +1,72 @@
+
+""" Keyboards have arrows in the 20th century
+nnoremap <Left> h
+nnoremap <Right> l
+nnoremap <Up> k
+nnoremap <Down> j
+
+""" vim-go
+let g:go_fmt_autosave = 0
+let g:go_info_mode='gopls'
+
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_variable_declarations = 1
+
+""" vim-airline
+let g:airline_theme = 'minimalist'
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+let g:airline_extensions = ['branch', 'netrw', 'ale', 'tabline']
+
+""" tComment
+nmap <Leader>cc :TComment<cr>
+xmap <Leader>cc :TCommentMaybeInline<cr>
+
+""" File Jumping
+nnoremap <silent> <leader>z :bp<CR>
+nnoremap <silent> <leader>x :bn<CR>
+
+""" Window Splitting
+nmap <silent> <leader>hs :split<CR>
+nmap <silent> <leader>vs :vsplit<CR>
+nmap <silent> <leader>sc :close<CR>
+
+""" clear search highligt
+nnoremap <silent> <Esc><Esc> :nohl<cr>
+
+""" copy to system clipboard
+vnoremap Y "+y
+
+""" nerdtree
+nnoremap <silent> \ :NERDTreeToggle<cr>
+nnoremap <silent> \| :NERDTreeFind<cr>
+
+""" save on enter
+nnoremap <silent> <expr> <cr> empty(&buftype) ? ':w<cr>' : '<cr>'
+
+""" Powerline
+"" https://fedoramagazine.org/add-power-terminal-powerline/
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+
