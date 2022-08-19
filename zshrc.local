@@ -7,3 +7,4 @@ set -o emacs
 
 export PATH="${HOME}/go/bin:${PATH}"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
