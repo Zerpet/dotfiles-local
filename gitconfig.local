@@ -31,8 +31,8 @@
   default = current
 [commit]
   verbose = true
-[user]
-  name = Aitor Perez Cedres
-  email = acedres@vmware.com
+  gpgsign = true
 [http "https://gopkg.in"]
   followRedirects = true
+[include]
+  path = ~/.gitconfig.private.local

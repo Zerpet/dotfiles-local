@@ -1,4 +1,6 @@
 
+# Powerline setup in Linux
+# Unused on Mac
 if [ -f '/usr/share/powerline/zsh/powerline.zsh' ]; then
   . /usr/share/powerline/zsh/powerline.zsh
 fi
@@ -6,5 +8,12 @@ fi
 set -o emacs
 
 export PATH="${HOME}/go/bin:${PATH}"
+
+# Rancher Desktop binaries
+[ -f "$HOME/.rd/bin" ] && export PATH="$HOME/.rd/bin:${PATH}"
+
+# Fix for GPG signing
+# https://stackoverflow.com/questions/41052538/git-error-gpg-failed-to-sign-data
+export GPG_TTY=$(tty)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
