@@ -7,10 +7,11 @@ fi
 
 set -o emacs
 
-export PATH="${HOME}/go/bin:${PATH}"
+# Golang
+export PATH="${HOME}/go/bin:${HOME}/go/current/bin:${PATH}"
 
 # Rancher Desktop binaries
-[ -f "$HOME/.rd/bin" ] && export PATH="$HOME/.rd/bin:${PATH}"
+[ -d "${HOME}/.rd/bin" ] && export PATH="$HOME/.rd/bin:${PATH}"
 
 # Fix for GPG signing
 # https://stackoverflow.com/questions/41052538/git-error-gpg-failed-to-sign-data
