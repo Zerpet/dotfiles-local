@@ -1,2 +1,5 @@
 alias duet='git duet --global'
 alias n='nerdctl'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias k='kubectl'

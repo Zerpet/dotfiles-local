@@ -1,3 +1,6 @@
+# Bash-like navigation
+autoload -U select-word-style
+select-word-style bash
 
 # Powerline setup in Linux
 # Unused on Mac
@@ -13,8 +16,44 @@ export PATH="${HOME}/go/bin:${HOME}/go/current/bin:${PATH}"
 # Rancher Desktop binaries
 [ -d "${HOME}/.rd/bin" ] && export PATH="$HOME/.rd/bin:${PATH}"
 
+# Kuberlr kubectl binaries
+# Putting this at the end of PATH intentionally
+export PATH="${PATH}:${HOME}/.kuberlr/darwin-amd64"
+
 # Fix for GPG signing
 # https://stackoverflow.com/questions/41052538/git-error-gpg-failed-to-sign-data
 export GPG_TTY=$(tty)
 
+# Make LastPass CLI stop asking your password every other minute
+export LPASS_AGENT_TIMEOUT=$((9 * 3600))
+
+# Things to do if Homebrew is present
+if [[ -n "${HOMEBREW_PREFIX}" ]]
+then
+  # https://stackoverflow.com/questions/25290751/where-to-place-zsh-autocompletion-script-on-linux
+  export fpath=("${fpath[@]}" ${HOMEBREW_PREFIX}/share/zsh/site-functions)
+  if [[ -f "${HOMEBREW_PREFIX}/bin/bat" ]]
+  then
+    alias bat='bat --theme="Solarized (light)"'
+    alias cat='bat --plain --paging=never'
+    alias less='bat'
+  fi
+fi
+
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Auth plugin to access GKE clusters. Required from 1.25+
+# https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+[[ -n "${HOMEBREW_PREFIX}" && -f \
+"${HOMEBREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+]] && source "${HOMEBREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+
+# if [[ -f "${HOMEBREW_PREFIX}/opt/kube-ps1/share/kube-ps1.sh" ]]; then
+#   source "${HOMEBREW_PREFIX}/opt/kube-ps1/share/kube-ps1.sh"
+#   PS1='$(kube_ps1)'$PS1
+# fi
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"

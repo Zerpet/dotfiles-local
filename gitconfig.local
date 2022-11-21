@@ -15,8 +15,10 @@
   fixup = commit --fixup
   squash = commit --squash
   unstage = reset HEAD
-  rum = rebase master@{u}
+  rum = rebase main@{u}
   hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  fv = fetch --verbose --prune
+  fvt = fetch --verbose --tags --prune-tags
 [color]
   branch = auto
   diff = auto
