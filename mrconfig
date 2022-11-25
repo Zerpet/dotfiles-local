@@ -1,0 +1,28 @@
+
+[workspace/rabbitmq-stream-go-client-v2]
+checkout = git clone 'git@github.com:Gsantomaggio/rabbitmq-stream-go-client.git' 'rabbitmq-stream-go-client-v2'
+fetch = git fetch --verbose --prune
+
+[workspace/infrastructure]
+checkout = git clone 'git@github.com:rabbitmq/infrastructure.git' 'infrastructure'
+fetch = git fetch --verbose --prune
+
+[workspace/amqp091-go]
+checkout = git clone 'git@github.com:rabbitmq/amqp091-go.git' 'amqp091-go'
+fetch = git fetch --verbose --prune
+
+[workspace/rabbitmq-perf-test]
+checkout = git clone 'git@github.com:rabbitmq/rabbitmq-perf-test.git' 'rabbitmq-perf-test'
+fetch = git fetch --verbose --prune
+
+[workspace/tanzu-rabbitmq-docs]
+checkout = git clone 'git@github.com:rabbitmq/tanzu-rabbitmq-docs.git' 'tanzu-rabbitmq-docs'
+fetch = git fetch --verbose --prune
+
+[workspace/rabbitmq-stream-java-client]
+checkout = git clone 'git@github.com:rabbitmq/rabbitmq-stream-java-client.git' 'rabbitmq-stream-java-client'
+fetch = git fetch --verbose --prune
+
+[workspace/rabbitmq-stream-dotnet-client]
+checkout = git clone 'git@github.com:rabbitmq/rabbitmq-stream-dotnet-client.git' 'rabbitmq-stream-dotnet-client'
+fetch = git fetch --verbose --prune

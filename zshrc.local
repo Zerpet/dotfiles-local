@@ -51,6 +51,8 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 "${HOMEBREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 ]] && source "${HOMEBREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 
+# Makes the initialisation of a new session considerably slower. Uncomment only 
+# as needed
 # if [[ -f "${HOMEBREW_PREFIX}/opt/kube-ps1/share/kube-ps1.sh" ]]; then
 #   source "${HOMEBREW_PREFIX}/opt/kube-ps1/share/kube-ps1.sh"
 #   PS1='$(kube_ps1)'$PS1
