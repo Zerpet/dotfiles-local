@@ -1,8 +1,0 @@
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'mhinz/vim-startify'
-
