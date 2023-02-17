@@ -40,9 +40,6 @@ then
   fi
 fi
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Auth plugin to access GKE clusters. Required from 1.25+
 # https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
@@ -59,3 +56,10 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 # fi
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+## chruby && ruby-install
+if [[ -n "${HOMEBREW_PREFIX}" && -f "${HOMEBREW_PREFIX}/opt/chruby/share/chruby/chruby.sh" ]]; then
+  source "${HOMEBREW_PREFIX}/opt/chruby/share/chruby/chruby.sh"
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
