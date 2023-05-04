@@ -1,2 +1,2 @@
-go/pkg/
-Library/Caches/
+go/pkg/**
+Library/**
