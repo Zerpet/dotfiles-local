@@ -20,10 +20,6 @@ export PATH="${HOME}/go/bin:${HOME}/go/current/bin:${PATH}"
 # Putting this at the end of PATH intentionally
 export PATH="${PATH}:${HOME}/.kuberlr/darwin-amd64"
 
-# Fix for GPG signing
-# https://stackoverflow.com/questions/41052538/git-error-gpg-failed-to-sign-data
-export GPG_TTY=$(tty)
-
 # Make LastPass CLI stop asking your password every other minute
 export LPASS_AGENT_TIMEOUT=$((9 * 3600))
 
@@ -60,6 +56,19 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 ## chruby && ruby-install
 if [[ -n "${HOMEBREW_PREFIX}" && -f "${HOMEBREW_PREFIX}/opt/chruby/share/chruby/chruby.sh" ]]; then
   source "${HOMEBREW_PREFIX}/opt/chruby/share/chruby/chruby.sh"
+fi
+
+## dotnet SDK
+if [[ -n "${HOMEBREW_PREFIX}" && -d "${HOMEBREW_PREFIX}/opt/dotnet/libexec" ]]; then
+  export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+fi
+
+if [[ -d "/usr/local/share/dotnet" ]]; then
+  export DOTNET_ROOT="/usr/local/share/dotnet"
+fi
+
+if [[ -n "${DOTNET_ROOT}" ]]; then
+  export PATH="$PATH:/Users/acedres/.dotnet/tools"
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

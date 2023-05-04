@@ -1,2 +1,4 @@
 export HOMEBREW_NO_ANALYTICS=1
+# Fix for GPG signing
+# https://stackoverflow.com/questions/41052538/git-error-gpg-failed-to-sign-data
 export GPG_TTY=$(tty)
