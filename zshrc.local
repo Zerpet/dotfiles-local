@@ -11,7 +11,16 @@ fi
 set -o emacs
 
 # Golang
-export PATH="${HOME}/go/bin:${HOME}/go/current/bin:${PATH}"
+
+export PATH="${HOME}/go/bin:${PATH}"
+
+## Gobrew
+## https://github.com/kevincobain2000/gobrew
+
+if [[ -d "${HOME}/.gobrew" ]]; then
+    export GOROOT="$HOME/.gobrew/current/go"
+    export PATH="$HOME/.gobrew/current/bin:$HOME/.gobrew/bin:$PATH"
+fi
 
 # Rancher Desktop binaries
 [ -d "${HOME}/.rd/bin" ] && export PATH="$HOME/.rd/bin:${PATH}"
@@ -40,9 +49,15 @@ fi
 # https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
-[[ -n "${HOMEBREW_PREFIX}" && -f \
-"${HOMEBREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-]] && source "${HOMEBREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+if [[ -n "${HOMEBREW_PREFIX}" && -f "${HOMEBREW_PREFIX}/share/google-cloud-sdk/path.zsh.inc" ]]
+then
+    source "${HOMEBREW_PREFIX}/share/google-cloud-sdk/path.zsh.inc"
+fi
+
+if [[ -n "${HOMEBREW_PREFIX}" && -f "${HOMEBREW_PREFIX}/share/google-cloud-sdk/completion.zsh.inc" ]]
+then
+    source "${HOMEBREW_PREFIX}/share/google-cloud-sdk/completion.zsh.inc"
+fi
 
 # Makes the initialisation of a new session considerably slower. Uncomment only 
 # as needed
