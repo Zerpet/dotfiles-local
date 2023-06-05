@@ -4,3 +4,4 @@ export HOMEBREW_NO_ANALYTICS=1
 export GPG_TTY=$(tty)
 export FZF_DEFAULT_COMMAND="fd"
 export FZF_ALT_C_COMMAND="command fd -L --min-depth 1 --type d"
+export DOTNET_CLI_TELEMETRY_OPTOUT='1'
